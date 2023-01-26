@@ -1,20 +1,16 @@
 package app;
+import java.util.Scanner;
 
 public class Main {
+
+    static int a;
+    static int b;
 
     public static void main(String[] args) {
         System.out.println("My app for Users!");
         System.out.println("Version 1.0");
-        int a = 8;
-        int b = 2;
-        int c = add(a, b);
-        System.out.println(c);
-        int d = multiply(a, b);
-        System.out.println(d);
-        int e = subtract(a, b);
-        System.out.println(e);
-        int f = divide(a, b);
-        System.out.println(f);
+        initVars();
+        doCalc();
     }
 
     private static int add(int a, int b) {
@@ -30,5 +26,21 @@ public class Main {
     }
     private static int divide(int a, int b) {
         return a / b;
+    }
+
+    private static void initVars() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a:");
+        a = sc.nextInt();
+        System.out.println("Enter b:");
+        b = sc.nextInt();
+        sc.close();
+    }
+
+    private static void doCalc() {
+        System.out.printf("Added: %d\n" +
+                "Multiplied: %d\n" +
+                "Subtracted: %d\n" +
+                "Divided: %d", add(a, b), multiply(a, b), subtract(a, b), divide(a, b));
     }
 }
